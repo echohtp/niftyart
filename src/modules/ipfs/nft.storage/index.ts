@@ -4,6 +4,7 @@ import { fromDwebLink } from '..';
 import { PinFileResponse } from '../types';
 
 export default async function uploadFile(file: File): Promise<PinFileResponse> {
+  //@ts-ignore
   const body = createReadStream(file.filepath)
   try {
     const response = await fetch('https://api.nft.storage/upload', {
@@ -21,15 +22,20 @@ export default async function uploadFile(file: File): Promise<PinFileResponse> {
       return {
         error: json.error?.code + ': ' + json.error?.message,
         uri: '',
+        //@ts-ignore
         name: file.originalFilename || '',
+        //@ts-ignore
         type: file.mimetype || '',
       };
     }
+    //@ts-ignore
     const ext = path.extname(file.originalFilename).replace('.', '');
     return {
       error: undefined,
       uri: fromDwebLink(json.value.cid) + `?ext=${ext}`,
+      //@ts-ignore
       name: file.originalFilename || '',
+      //@ts-ignore
       type: file.mimetype || '',
     };
   } catch (error) {
@@ -37,7 +43,9 @@ export default async function uploadFile(file: File): Promise<PinFileResponse> {
     return {
       error: 'Upload error',
       uri: undefined,
+      //@ts-ignore
       name: file.originalFilename || '',
+      //@ts-ignore
       type: file.mimetype || '',
     };
   }

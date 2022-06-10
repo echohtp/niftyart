@@ -5,9 +5,18 @@ import { gql } from '@apollo/client'
 import { useMemo, useState } from 'react'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import client from '../client'
+import '../types.d.ts'
 
 import { NftCardHtml } from '../components/nftCardHtml'
 import { Navbar } from '../components/navbar'
+
+
+interface Nft { 
+    name: string
+    description: string
+    files: any
+    attributes: any
+}
 
 const GET_NFTS = gql`
   query GetNfts(
@@ -70,7 +79,7 @@ export default function Profile () {
             <div className='grid grid-cols-4 gap-4'>
             {nfts.map((nft, index) => {
               console.log(nft)
-              return <NftCardHtml name={nft.name} src={nft.files[0].uri} />
+              return <div key={Math.random()}><NftCardHtml name={nft.name} src={nft.files[0].uri} /></div>
             })}
                 </div>
         </main>
