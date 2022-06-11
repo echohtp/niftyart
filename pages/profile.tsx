@@ -8,12 +8,11 @@ import client from '../client'
 import { NftCardHtml } from '../components/NftCardHtml'
 import { Navbar } from '../components/Navbar'
 
-
-interface Nft { 
-    name: string
-    description: string
-    files: any
-    attributes: any
+interface Nft {
+  name: string
+  description: string
+  files: any
+  attributes: any
 }
 
 const GET_NFTS = gql`
@@ -54,7 +53,7 @@ export default function Profile () {
             creators: [publicKey?.toBase58()],
             offset: 0,
             limit: 10000,
-            attributes: { traitType: 'fx', values: ['true'] }
+            attributes: { traitType: 'niftyplex', values: ['true'] }
           }
         })
         .then(res => setNfts(res.data.nfts))
@@ -74,12 +73,20 @@ export default function Profile () {
       {!connected && <p>connect plz</p>}
       {connected && (
         <main className={styles.main}>
+          {nfts.length > 0 ? (
             <div className='grid grid-cols-4 gap-4'>
-            {nfts.map((nft, index) => {
-              console.log(nft)
-              return <div key={Math.random()}><NftCardHtml name={nft.name} src={nft.files[0].uri} /></div>
-            })}
-                </div>
+              {nfts.map((nft, index) => {
+                console.log(nft)
+                return (
+                  <div key={Math.random()}>
+                    <NftCardHtml name={nft.name} src={nft.files[0].uri} />
+                  </div>
+                )
+              })}
+            </div>
+          ) : (
+            <p>No nfts minted yet!</p>
+          )}
         </main>
       )}
     </div>

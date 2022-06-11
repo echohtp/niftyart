@@ -1,11 +1,12 @@
 import { gql } from '@apollo/client'
+import Link from 'next/link'
 import client from '../client'
 
 interface NftCardProps {
   src: string
   name: String
   description?: String
-  profile?: any
+  owner?: any
   select?(): void
   unselect?(): void
 }
@@ -36,14 +37,19 @@ export const NftCardShowcase = (props: NftCardProps) => {
       <div className='card-body'>
         <h2 className='card-title'>{props.name}</h2>
         <p>{props.description}</p>
-        {props.profile && (
+        {props.owner && (
           <div className=''>
               <img
                 className='inline object-cover w-12 h-12 mr-2 rounded-full'
-                src={props.profile.profileImageUrlLowres}
+                src={props.owner.profile.profileImageUrlLowres}
                 alt='user image'
               />
-            <p className='inline-block'>{props.profile.handle}</p>
+              <Link href={`/profile/${props.owner.address}`} passHref>
+                <button className='font-bold tracking-wide uppercase'>
+                {props.owner.profile.handle}
+                </button>
+              </Link>
+              
           </div>
         )}
       </div>

@@ -57,7 +57,7 @@ export default function Profile () {
             creators: [pubkey],
             offset: 0,
             limit: 10000,
-            attributes: { traitType: 'fx', values: ['true'] }
+            attributes: { traitType: 'niftyplex', values: ['true'] }
           }
         })
         .then(res => setNfts(res.data.nfts))
