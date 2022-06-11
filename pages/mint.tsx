@@ -137,7 +137,6 @@ export default function Tester () {
     ipfsSDK
       .uploadFile(settings)
       .then((res: any) => {
-        console.log(res.uri)
         actions
           .mintNFT({
             connection,
@@ -147,16 +146,16 @@ export default function Tester () {
           })
           .then((res: any) => {
             const strResult = stringifyPubkeysAndBNsInObject(res)
-            console.log(strResult)
+            // DO SOMETHING HERE
             setMint(false)
           })
           .catch((e: any) => {
-            console.log("mint failed: ", e.message)
+            console.error("mint failed: ", e.message)
             setMint(false)
           })
       })
       .catch((e) => {
-        console.log("upload failed: ", e.message)
+        console.error("upload failed: ", e.message)
         setMint(false)
       })
   })
@@ -188,7 +187,6 @@ export default function Tester () {
                     setContentUrl(null)
                   }}
                   success={(resp, file) => {
-                    console.log(resp, file)
                     setContentUrl(resp.url)
                   }}
                 >

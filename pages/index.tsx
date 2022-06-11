@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { Navbar } from '../components/Navbar'
 import { gql } from '@apollo/client'
 import client from '../client'
-import { useMemo } from 'react'
+import { useEffect } from 'react'
 import {NftCardShowcase} from '../components/NftCardShowcase'
 import { useState } from 'react'
 import { useWallet } from '@solana/wallet-adapter-react'
@@ -78,7 +78,7 @@ export default function Home() {
   const RANDOM_FEATURE = Math.floor(Math.random() * FEATURED_NFTS.length)
   const [nft, setNft] = useState<Nft|null>(null)
   const { publicKey, signTransaction, connected } = useWallet()
-  useMemo(() => {
+  useEffect(() => {
     client.query({
       query: GET_NFTS,
       variables: {
@@ -88,11 +88,9 @@ export default function Home() {
         attributes: { traitType: 'niftyplex', values: ['true'] }
       }
     }).then(res => {
-      console.log(res)
-
       setNft(res.data.nfts[Math.floor(Math.random() * res.data.nfts.length)])
     })
-  }, [RANDOM_FEATURE])
+  }, [])
 
 
   return (

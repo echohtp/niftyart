@@ -65,9 +65,7 @@ export default function Profile () {
       setNfts([])
     }
   }, [pubkey])
-  console.log("pubKey", pubkey)
-  console.log("nfts")
-  console.log(nfts)
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -80,7 +78,6 @@ export default function Profile () {
         <main className={styles.main}>
             <div className='grid grid-cols-4 gap-4'>
             {nfts.map((nft, index) => {
-              console.log(nft)
               return <div key={Math.random()}><NftCardHtml name={nft.name} src={nft.files[0].uri} /></div>
             })}
                 </div>
