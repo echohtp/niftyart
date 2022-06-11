@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 import client from '../client'
 
-interface NftCardProps {
+export interface NftCardHtmlProps {
   src: string
   name: String
   description?: String
@@ -22,7 +22,7 @@ const GET_PROFILE = gql`
   }
 `
 
-export const NftCardHtml = (props: NftCardProps) => {
+export const NftCardHtml = (props: NftCardHtmlProps) => {
   return (
     <div className='shadow-xl card card-compact bg-base-100'>
       <figure>
