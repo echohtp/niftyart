@@ -56,11 +56,14 @@ export default function Profile () {
             attributes: { traitType: 'niftyplex', values: ['true'] }
           }
         })
-        .then(res => setNfts(res.data.nfts))
+        .then(res => {
+          console.log(res)
+          setNfts(res.data.nfts)
+        })
     } else {
       setNfts([])
     }
-  }, [publicKey?.toBase58()])
+  }, [connected])
 
   return (
     <div className={styles.container}>
