@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import client from '../../client'
 
-// import { NftCardHtml } from '../../components/NftCardHtml'
+import { NftCard } from '../../components/NftCard'
 import { Navbar } from '../../components/Navbar'
 import { useRouter } from 'next/router'
 
@@ -78,8 +78,7 @@ export default function Profile () {
         <main className={styles.main}>
             <div className='grid grid-cols-4 gap-4'>
             {nfts.map((nft, index) => {
-              return <></>
-              // <div key={Math.random()}><NftCardHtml name={nft.name} src={nft.files[0].uri} /></div>
+              return <div key={Math.random()}><NftCard name={nft.name} src={nft.files[0].uri} /></div>
             })}
                 </div>
         </main>
