@@ -1,6 +1,3 @@
-import { gql } from '@apollo/client'
-import client from '../client'
-
 interface NftCardHtmlProps {
   src: string
   name: String
@@ -9,18 +6,6 @@ interface NftCardHtmlProps {
   select?(): void
   unselect?(): void
 }
-
-const GET_PROFILE = gql`
-  query GetProfile($address: String!) {
-    nft(address: $address) {
-      name
-      description
-      files {
-        uri
-      }
-    }
-  }
-`
 
 export const NftCardHtml = (props: NftCardHtmlProps) => {
   return (
