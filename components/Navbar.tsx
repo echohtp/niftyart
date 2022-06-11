@@ -3,7 +3,12 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export const Navbar = props => {
+interface NavbarProps {
+  connected?: boolean
+}
+
+
+export const Navbar = (props: NavbarProps) => {
   return (
     <div className='navbar bg-base-100'>
       <div className='navbar-start'>

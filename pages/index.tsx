@@ -12,7 +12,13 @@ import { useWallet } from '@solana/wallet-adapter-react'
 const FEATURED_NFTS = ["3dbP3QEE8JfJZrEsHY9B3Sgz55EGLpDAD5FxkwiMvDvQ"]
 const FEATURED_ARTIST = "232PpcrPc6Kz7geafvbRzt5HnHP4kX88yvzUCN69WXQC"
 
-
+interface Nft {
+  name: string
+  description: string
+  files: any
+  attributes: any
+  owner: any
+}
 
 const GET_NFTS = gql`
   query GetNfts(
@@ -70,7 +76,7 @@ query GetNft(
 
 export default function Home() {
   const RANDOM_FEATURE = Math.floor(Math.random() * FEATURED_NFTS.length)
-  const [nft, setNft] = useState(null)
+  const [nft, setNft] = useState<Nft|null>(null)
   const { publicKey, signTransaction, connected } = useWallet()
   useMemo(() => {
     client.query({
