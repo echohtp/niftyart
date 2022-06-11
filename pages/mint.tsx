@@ -10,6 +10,7 @@ import styles from '../styles/Home.module.css'
 import Upload from '../components/Upload'
 import ipfsSDK from '../src/modules/ipfs/client'
 import { Navbar } from '../components/Navbar';
+import Link from 'next/link'
 
 function sleeper (ms: any) {
   return function (x: any) {
@@ -173,7 +174,7 @@ export default function Tester () {
         <main className={styles.main}>
           <div className='grid grid-cols-2 gap-4'>
             <div className=''>
-              <p>Use our BOILERPLATE</p>
+              <p>Use our <Link href="sample.html" passHref><a>BOILERPLATE</a></Link></p>
               <div className='w-1/2 px-4 py-4 border border-black'>
                 <Upload
                   beforeUpload={file => {
