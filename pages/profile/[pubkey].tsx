@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import client from '../../client'
 
-import { NftCardHtml } from '../../components/nftCardHtml'
+import { NftCardHtml } from '../../components/NftCardHtml'
 import { Navbar } from '../../components/Navbar'
 import { useRouter } from 'next/router'
 
