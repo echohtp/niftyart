@@ -5,10 +5,9 @@ import { gql } from '@apollo/client'
 import { useMemo, useState } from 'react'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import client from '../client'
-import '../types.d.ts'
 
 import { NftCardHtml } from '../components/nftCardHtml'
-import { Navbar } from '../components/navbar'
+import { Navbar } from '../components/Navbar'
 
 
 interface Nft { 

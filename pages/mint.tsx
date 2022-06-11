@@ -9,7 +9,7 @@ import BN from 'bn.js'
 import styles from '../styles/Home.module.css'
 import Upload from '../components/Upload'
 import ipfsSDK from '../src/modules/ipfs/client'
-import { Navbar } from '../components/navbar';
+import { Navbar } from '../components/Navbar';
 
 function sleeper (ms: any) {
   return function (x: any) {
@@ -174,8 +174,8 @@ export default function Tester () {
         <main className={styles.main}>
           <div className='grid grid-cols-2 gap-4'>
             <div className=''>
-              <p>something here</p>
-              <div className='border border-black'>
+              <p>Use our BOILERPLATE</p>
+              <div className='w-1/2 px-4 py-4 border border-black'>
                 <Upload
                   beforeUpload={file => {
                     const isHTML = file.type === 'text/html'
@@ -193,7 +193,7 @@ export default function Tester () {
                   }}
                 >
                   <div className='flex flex-col justify-center'>
-                    <p className=''>Upload File</p>
+                    <p className=''>HTML FILES ONLY!</p>
                   </div>
                 </Upload>
               </div>
