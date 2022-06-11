@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 import client from '../client'
 
-export interface NftCardHtmlProps {
+interface NftCardHtmlProps {
   src: string
   name: String
   description?: String
