@@ -78,7 +78,8 @@ export default function Profile () {
         <main className={styles.main}>
             <div className='grid grid-cols-4 gap-4'>
             {nfts.map((nft, index) => {
-              return <div key={Math.random()}><NftCardHtml name={nft.name} src={nft.files[0].uri} /></div>
+              return <></>
+              // <div key={Math.random()}><NftCardHtml name={nft.name} src={nft.files[0].uri} /></div>
             })}
                 </div>
         </main>
